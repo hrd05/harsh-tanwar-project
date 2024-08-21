@@ -1,0 +1,14 @@
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" [routerLink]="['/']">
+            <img src="/assets/logo.svg" alt="Logo" width="40" height="32" class="d-inline-block align-text-top">
+            <span class="ms-2 mx-2" style="color: black;">EasyRun</span>
+        </a>
+
+        <div class="ms-auto d-flex">
+            <button mat-button *ngIf="isAuthenticated" (click)="getOrderHistory()">Orders</button>
+            <button mat-raised-button class="mx-3" color="warn" *ngIf="isAuthenticated"
+                (click)="onLogout()">Logout</button>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,68 @@
+<section class="vh-100">
+    <div class="container-fluid h-custom">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-md-9 col-lg-6 col-xl-5 d-none d-lg-block ">
+                <img src="/assets/undraw_deliveries_2r4y.svg" class="img-fluid" alt="Sample image">
+            </div>
+            <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                <!-- <h1>Login</h1> -->
+                <div class="alert alert-danger" *ngIf="error">
+                    <p> {{error}} </p>
+                </div>
+                <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+
+                    <div data-mdb-input-init class="form-outline mb-4" *ngIf="!isLoginMode">
+                        <label class="form-label" for="name">Name</label>
+                        <input type="text" id="name" class="form-control form-control" formControlName="name"
+                            placeholder="Enter your name" />
+                    </div>
+
+                    <!-- Email input -->
+                    <div data-mdb-input-init class="form-outline mb-4">
+                        <label class="form-label" for="email">Email address</label>
+                        <input type="email" id="email" class="form-control form-control" formControlName="email"
+                            placeholder="Enter a valid email address" />
+                    </div>
+
+                    <!-- Phone input -->
+
+                    <div data-mdb-input-init class="form-outline mb-3" *ngIf="!isLoginMode">
+                        <label class="form-label" for="phone">Mobile</label>
+                        <input type="tel" id="phone" class="form-control form-control" formControlName="phone"
+                            placeholder="Enter your phone number" />
+                    </div>
+
+                    <!-- Password input -->
+                    <div data-mdb-input-init class="form-outline mb-3">
+                        <label class="form-label" for="password">Password</label>
+                        <input type="password" id="password" class="form-control form-control"
+                            formControlName="password" placeholder="Enter password" />
+                    </div>
+
+                    <!-- <div class="d-flex justify-content-between align-items-center">
+
+                        <a href="#!" class="text-body">Forgot password?</a>
+                    </div> -->
+
+                    <div class="text-center text-lg-start mt-4 pt-2">
+
+                        <button type="submit" [disabled]="!authForm.valid" *ngIf="!isLoading"
+                            class="btn btn-secondary btn-lg"
+                            style="padding-left: 2.5rem; padding-right: 2.5rem;">{{isLoginMode ? 'Login' :
+                            'SignUp'}}</button>
+                        <app-loading-spinner *ngIf="isLoading"></app-loading-spinner>
+                        <p *ngIf="isLoginMode" class="fw-bold mt-2 pt-1 mb-0">
+                            Don't have an account?
+                            <a (click)="onChange()" class="link-danger">SignUp</a>
+                        </p>
+                        <p *ngIf="!isLoginMode" class="fw-bold mt-2 pt-1 mb-0">
+                            Already have an account?
+                            <a (click)="onChange()" class="link-danger">LogIn</a>
+                        </p>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,119 @@
+.container {
+  /* display: flex; */
+  /* gap: 2rem; */
+  /* padding: 1rem; */
+  margin-top: 20px;
+}
+
+.main-content {
+  display: flex;
+  margin-top: 25px;
+  gap: 2rem;
+}
+
+.pickup {
+  display: flex;
+}
+
+.pickup button {
+  color: #005cbb;
+}
+
+.card {
+  flex: 1;
+}
+
+.map-container {
+  flex: 1;
+  height: 500px;
+}
+
+::ng-deep .map-container {
+  width: 500px !important ;
+  height: 92% !important ;
+}
+
+::ng-deep .mat-autocomplete-panel {
+  /* Adjust width as needed */
+  /* Adjust width as needed */
+  max-height: 150px !important;
+  font-size: 12px; /* Decrease font size */
+}
+
+.full-width-button {
+  width: 100%;
+  color: white;
+  background-color: #3d3d3d;
+}
+
+.map-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 16px;
+  background-color: #f8f9fa; /* Light background for contrast */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-container {
+  margin-bottom: 16px;
+}
+
+.fare-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.total-fare {
+  font-size: 18px;
+  color: #3d3d3d;
+  margin: 0;
+}
+
+.confirm-button {
+  font-size: 16px;
+  /* padding: 8px 16px; */
+  background-color: #007bff;
+  color: #ffffff;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-button:hover {
+  background-color: #0056b3;
+}
+
+.address-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+.submitbtn {
+  background-color: #3d3d3d;
+  color: white;
+}
+
+.calculate-fare-container {
+  display: block;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button-spinner-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 50px; /* Height of the container, can match the button height */
+}

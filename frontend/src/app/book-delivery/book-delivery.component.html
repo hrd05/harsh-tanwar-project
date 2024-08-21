@@ -1,0 +1,40 @@
+<div class="container">
+    <h1>Schedule a Delivery</h1>
+    <div class="fare-summary-container">
+        <mat-card>
+            <h2>Total Amount: <strong>{{ fareAmount }} INR</strong></h2>
+
+            <h3>Select Payment Mode</h3>
+            <mat-radio-group [(ngModel)]="paymentMode">
+                <mat-radio-button value="cash">Cash</mat-radio-button>
+                <mat-radio-button value="card">Card</mat-radio-button>
+            </mat-radio-group>
+
+            <h3>Delivery Options</h3>
+            <mat-radio-group [(ngModel)]="selectedOption" (change)="onDeliveryOptionChange($event)">
+                <mat-radio-button value="immediate">Instant Booking</mat-radio-button>
+                <mat-radio-button value="schedule">Schedule Delivery</mat-radio-button>
+            </mat-radio-group>
+
+            <div *ngIf="!isImmediate" class="schedule-options">
+                <mat-form-field appearance="fill" class="date-field">
+                    <mat-label>Choose Date</mat-label>
+                    <input matInput [matDatepicker]="picker" [(ngModel)]="scheduledDate">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill" class="time-field">
+                    <mat-label>Choose Time</mat-label>
+                    <input matInput type="time" matTimepicker min="10:00" max="18:00" [(ngModel)]="scheduledTime">
+                </mat-form-field>
+            </div>
+
+            <div class="button-spinner-container">
+                <button mat-raised-button color="primary" *ngIf="!isLoading" (click)="bookDelivery()">Book
+                    Delivery</button>
+                <mat-spinner [diameter]="35" color="accent" *ngIf="isLoading"></mat-spinner>
+            </div>
+        </mat-card>
+    </div>
+</div>

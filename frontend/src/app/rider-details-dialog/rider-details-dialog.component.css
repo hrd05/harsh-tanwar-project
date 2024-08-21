@@ -1,0 +1,56 @@
+.dialog-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.dialog-content {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.dialog-section {
+  margin-bottom: 10px;
+}
+
+.dialog-label {
+  font-weight: bold;
+  color: #555;
+  margin: 0;
+}
+
+.dialog-value {
+  margin: 0;
+  color: #333;
+}
+
+.dialog-warning {
+  color: red;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.dialog-success {
+  color: green;
+  font-style: italic;
+  font-size: 1em;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.close-button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 6px 12px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.close-button:hover {
+  background-color: #0056b3;
+}

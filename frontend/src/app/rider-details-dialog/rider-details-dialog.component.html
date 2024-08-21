@@ -1,0 +1,34 @@
+<h1 mat-dialog-title class="dialog-title">Order Details</h1>
+<div mat-dialog-content class="dialog-content">
+    <div class="dialog-section">
+        <p class="dialog-label">Pickup Address:</p>
+        <p class="dialog-value">{{data.pickupAddress}}</p>
+    </div>
+    <div class="dialog-section">
+        <p class="dialog-label">Delivery Address:</p>
+        <p class="dialog-value">{{data.deliveryAddress}}</p>
+    </div>
+    <div class="dialog-section">
+        <p class="dialog-label">Fare:</p>
+        <p class="dialog-value">{{data.fare | currency: 'INR'}}</p>
+    </div>
+    <div *ngIf="data.rider" class="dialog-section">
+        <p class="dialog-label">Rider Name:</p>
+        <p class="dialog-value">{{data.rider.name}}</p>
+    </div>
+    <div *ngIf="data.rider" class="dialog-section">
+        <p class="dialog-label">Rider Phone:</p>
+        <p class="dialog-value">{{data.rider.phone}}</p><br />
+    </div>
+    <!-- <div *ngIf="data.status === 'scheduled'" class="dialog-section">
+        <p class="dialog-label">Scheduled Time </p>
+        <p class="dialog-value">{{data.scheduled_time}}</p>
+    </div> -->
+    <div *ngIf="!data.rider && data.status === 'scheduled'" class="dialog-section">
+        <p class="dialog-warning">* A rider will be assigned closer to the delivery time.</p>
+    </div>
+
+</div>
+<div mat-dialog-actions class="dialog-actions">
+    <button mat-button mat-dialog-close class="close-button">Close</button>
+</div>

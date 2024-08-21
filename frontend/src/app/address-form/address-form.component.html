@@ -1,0 +1,77 @@
+<div class="container">
+    <h1>Welcome to EasyRun.</h1>
+    <p>EasyRun offers reliable and fast delvery services for all your needs. Whether you need to send a package across
+        town or receive a delivery, we're here to help. Book or schedule a delivery, track your orders.</p>
+
+    <div class="main-content">
+        <mat-card class="card">
+            <!-- <h1>Add Pickup & Delivery Address</h1> -->
+            <mat-card-header>
+            </mat-card-header>
+            <mat-card-content>
+                <!-- Pickup Address Section -->
+                <section class="address-section">
+                    <h2>Add Pickup Address</h2>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Pickup Address</mat-label>
+                        <input matInput placeholder="Enter Pickup Address" id="pickupAddress" [matAutocomplete]="auto"
+                            (focus)="onFocus()" (input)="onInput('pickup')" (input)="initAutocomplete('pickup')"
+                            #pickupAddress />
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayWith">
+                            <mat-option *ngFor="let address of userSavedPickupAdd" [value]="address.address">
+                                <mat-icon>history</mat-icon>
+                                {{ address.address }}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <!-- <mat-form-field appearance="fill" *ngIf="showSavedPickupAddresses">
+                    <mat-label>Saved Pickup Address</mat-label>
+                    <input matInput placeholder="Select from saved addresses" [matAutocomplete]="auto" #pickupAddress />
+                </mat-form-field> -->
+                </section>
+
+                <!-- Delivery Address Section -->
+
+                <section class="address-section">
+                    <h2>Add Delivery Address</h2>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Delivery Address</mat-label>
+                        <input matInput placeholder="Enter DeliveryAddress" (input)="initAutocomplete('delivery')"
+                            [matAutocomplete]=" autoD" id="deliveryAddress" #deliveryAddress />
+                        <mat-autocomplete #autoD="matAutocomplete">
+                            <mat-option *ngFor="let address of userSavedDeliveryAdd" [value]="address.address">
+                                <mat-icon>history</mat-icon>
+                                {{ address.address }}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                    <div class="button-spinner-container">
+                        <button mat-raised-button color="primary" *ngIf="!isLoading" (click)="calculateFare()"
+                            class="full-width-button">
+                            Calculate Fare
+                        </button>
+                        <mat-spinner [diameter]="35" color="accent" *ngIf="isLoading"></mat-spinner>
+                    </div>
+                </section>
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card class="map-card">
+            <div class="map-container" id="map">
+                <google-map [options]="mapOptions">
+                    <map-marker [position]="marker.position"></map-marker>
+                </google-map>
+            </div>
+            <div class="fare-container" *ngIf="showFare">
+                <h2 class="total-fare">Total Fare: {{fare}} INR</h2>
+                <div class="button-spinner-container">
+                    <button mat-raised-button color="primary" *ngIf="!isLoading2" class="confirm-button"
+                        (click)="onConfirmClick()">Proceed</button>
+                    <mat-spinner [diameter]="35" color="primary" *ngIf=" isLoading2"></mat-spinner>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+
+</div>
